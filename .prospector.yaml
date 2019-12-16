@@ -1,0 +1,16 @@
+inherits:
+    - default
+    - strictness_high
+    - full_pep8
+uses:
+    - django
+pylint:
+  options:
+    ignored-argument-names: arg|args|kwargs
+ignore-paths:
+  - config
+  - public
+  - js
+ignore-patterns:
+  - (^|/)node_modules(/|$)
+  - (^|/)__pycache__(/|$)

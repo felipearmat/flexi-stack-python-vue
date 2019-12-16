@@ -1,0 +1,37 @@
+.idea
+db.sqlite3
+venv
+*.py[cod]
+staticfiles
+.vscode
+.env
+
+# Packages
+dist
+build
+parts
+bin
+var
+sdist
+develop-eggs
+.installed.cfg
+lib
+lib64
+__pycache__
+node_modules
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# pycharm
+.idea/
+
+*.lock
+*.yarn-integrity
+
+# Pasta static
+static/
+
+# Arquivo vars da produção
+config/vars.*

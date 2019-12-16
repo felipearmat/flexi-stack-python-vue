@@ -1,0 +1,20 @@
+# Dependencias base
+django==2.2.6
+djangorestframework==3.10.3
+Pillow==6.2.1
+astroid==2.2.5
+pylint==2.3.1
+gunicorn==19.9.0
+environ==1.0
+dj-database-url==0.5.0
+whitenoise==4.1.4
+psycopg2==2.8.4
+
+# Linter para python/django
+prospector==1.1.7
+
+# Slugify (transforma strings em strings aplicaveis a links na web)
+python-slugify==4.0.0
+
+# Biblioteca para edicao de conteudo no app
+django-ckeditor==5.7.1
