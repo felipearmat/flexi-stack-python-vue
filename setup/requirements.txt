@@ -1,5 +1,5 @@
 # Dependencias base
-django==2.2.6
+django==2.2.8
 djangorestframework==3.10.3
 Pillow==6.2.1
 astroid==2.2.5
