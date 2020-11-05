@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
+from pathlib import Path
 import dj_database_url
 
 # Importando condicionalmente o values para utilização em produção
@@ -21,10 +22,7 @@ except ImportError as e:
     values = {}
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-PROJECT_DIR = os.path.abspath(os.path.dirname(os.path.dirname(__file__)))
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
+PROJECT_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = values.get('DJANGO_SECRET_KEY', '%-dev_super_secret_key@-')
@@ -34,7 +32,8 @@ ENV = values.get('ENVIROMENT', 'dev')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True if ENV != 'Production' else False
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+if ENV != 'Production':
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 ALLOWED_HOSTS = list(values.get('ALLOWED_HOSTS', '*').split(","))
 
@@ -49,7 +48,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # 3rd-party apps.
     'rest_framework',
-    'ckeditor',
+    # 'ckeditor',
     # Project apps.
     'base.apps.baseConfig',
 ]
@@ -87,7 +86,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'config.wsgi.application'
 
 # Database
-# https://docs.djangoproject.com/en/2.2/ref/settings/#databases
+# https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 DATABASE_URL = values.get('DATABASE_URL',
                           "postgres://app:password@localhost:5432/app")
@@ -95,7 +94,7 @@ DATABASE_URL = values.get('DATABASE_URL',
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(PROJECT_DIR, 'sqlite', 'db.sqlite3'),
+#         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
 
@@ -130,7 +129,7 @@ if DEBUG:
     }
 
 # Internationalization
-# https://docs.djangoproject.com/en/2.2/topics/i18n/
+# https://docs.djangoproject.com/en/3.1/topics/i18n/
 
 LANGUAGE_CODE = 'pt-br'
 
@@ -145,11 +144,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 MEDIA_ROOT = values.get('MEDIA_ROOT',
-                            os.path.join(PROJECT_DIR, 'media'))
+                        os.path.join(PROJECT_DIR, 'media'))
 MEDIA_URL = '/media/'
 
 STATIC_ROOT = values.get('STATIC_ROOT',
-                             os.path.join(PROJECT_DIR, 'static'))
+                         os.path.join(PROJECT_DIR, 'static'))
 STATIC_URL = '/static/'
 
 STATICFILES_FINDERS = [
@@ -157,7 +156,7 @@ STATICFILES_FINDERS = [
   'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 ]
 
-CKEDITOR_BASEPATH = os.path.join(STATIC_URL, 'ckeditor/ckeditor/')
+# CKEDITOR_BASEPATH = os.path.join(STATIC_URL, 'ckeditor/ckeditor/')
 
 #  Configuration for static files storage using whitenoise
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
