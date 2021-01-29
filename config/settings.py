@@ -151,15 +151,10 @@ STATIC_ROOT = values.get('STATIC_ROOT',
                          os.path.join(PROJECT_DIR, 'static'))
 STATIC_URL = '/static/'
 
-STATICFILES_FINDERS = [
-  'django.contrib.staticfiles.finders.FileSystemFinder',
-  'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-]
-
-# CKEDITOR_BASEPATH = os.path.join(STATIC_URL, 'ckeditor/ckeditor/')
-
 #  Configuration for static files storage using whitenoise
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+# CKEDITOR_BASEPATH = os.path.join(STATIC_URL, 'ckeditor/ckeditor/')
 
 # Email settings.
 

@@ -11,14 +11,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     {% block head_base %}
-      <!-- Load polyfills to support older browsers -->
-      <script src="//polyfill.io/v3/polyfill.min.js?features=es2015%2CIntersectionObserver" crossorigin="anonymous"></script>
-      <!-- Fonts Awesome -->
-      <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js" integrity="sha384-kW+oWsYx3YpxvjtZjFXqazFpA7UP/MbiY4jvs+RWZo2+N94PFZ36T6TFkc9O3qoB" crossorigin="anonymous"></script>
-      <!-- Bootstrap Date Picker -->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js" crossorigin="anonymous"></script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker.standalone.min.css">
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.min.js"></script>
+      <link rel="preconnect" href="https://fonts.gstatic.com">
+      <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     {% endblock %}
     {% block head_css %}
       <link rel="stylesheet" href="{% static 'css/chunk-vendors.css' %}">
@@ -35,30 +29,16 @@
     {% block body_end %}
       <!-- Optional JavaScript -->
       <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
       <script type="text/javascript" src="{% static 'js/chunk-vendors.js' %}"></script>
       <script type="text/javascript" src="{% static 'js/app.js' %}"></script>
       <script type="text/javascript">
-        $.fn.datepicker.dates['pt-BR'] = {
-          days: ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado'],
-          daysShort: ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb','Dom'],
-          daysMin: ['D','S','T','Q','Q','S','S','D'],
-          months: ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],
-          monthsShort: ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'],
-          today: 'Hoje',
-          clear: 'Limpar'
-        };
-        $.fn.datepicker.defaults.autoclose = true;
-        $.fn.datepicker.defaults.format = 'dd/mm/yyyy';
-        $.fn.datepicker.defaults.todayHighlight = true;
-        $.fn.datepicker.defaults.language = 'pt-BR';
-        appVue.init(
+        app.init(
           '#app',
           {
             permissoes: "{{ perm_list }}"
           }
-        );
+        )
       </script>
     {% endblock %}
   </body>

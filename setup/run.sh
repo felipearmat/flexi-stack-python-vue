@@ -6,9 +6,9 @@ echo "Iniciando Postgres..."
 docker-entrypoint.sh postgres &
 echo "Instalando Dependencias do Vue..."
 cd "$DJANGO_APP_PATH/vue"
-npm install
+yarn install
 echo "Iniciando app no modo watch.."
-npm start &
+yarn run build:watch &
 echo "Atualizando Banco de Dados..."
 cd $DJANGO_APP_PATH
 python3 manage.py makemigrations

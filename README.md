@@ -10,13 +10,13 @@ Uma pilha básica utilizando Django como back-end e API, Vue.js como front-end n
 ```
 docker build -t django-vue-stack .
 ```
-- Ainda na pasta do projeto, execute o comando abaixo para iniciar a Imagem (esse comando iniciará o container com a pilha, mapeando a porta 8000 do seu pc com a porta 8000 do container, criando um diretório virtual para guardar os dados do BD como django-vue-db e mapeando a pasta do projeto para a pasta /work/app do container):
+- Ainda na pasta do projeto, execute o comando abaixo para iniciar a Imagem (esse comando iniciará o container com a pilha, mapeando a porta 8000 do seu pc com a porta 8000 do container, criando um diretório virtual para guardar os dados do BD como django-vue-db e mapeando a pasta do projeto para a pasta /app do container):
 ```
 # Comando para Windows
-docker run -it --rm --name=django-vue-stack -p 8000:8000 -v django-vue-db:/var/lib/postgresql/data -v %cd%:/work/app django-vue-stack
+docker run -it --rm --name=django-vue-stack -p 8000:8000 -v django-vue-db:/var/lib/postgresql/data -v %cd%:/app django-vue-stack
 
 # Comando para Unix
-docker run -it --rm --net=host --name=django-vue-stack -v django-vue-db:/var/lib/postgresql/data -v `pwd`:/work/app django-vue-stack
+docker run -it --rm --net=host --name=django-vue-stack -v django-vue-db:/var/lib/postgresql/data -v `pwd`:/app django-vue-stack
 ```
 - Acesse com seu navegador predileto o endereço localhost:8000
 

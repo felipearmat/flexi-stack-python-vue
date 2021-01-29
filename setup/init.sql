@@ -2,7 +2,7 @@
 CREATE DATABASE app;
 
 -- Criando Usuário a ser utilizado pelo Django
-CREATE USER app WITH PASSWORD 'password';
+CREATE ROLE app WITH LOGIN PASSWORD 'password';
 ALTER ROLE app SET client_encoding TO 'utf8';
 ALTER ROLE app SET default_transaction_isolation TO 'read committed';
 ALTER ROLE app SET timezone TO 'America/Sao_Paulo';

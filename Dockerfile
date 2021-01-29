@@ -213,6 +213,8 @@ RUN apt-get install -y nodejs \
  && apt-get install -y uwsgi \
  && apt-get clean
 
+RUN npm install -g yarn
+
 # Adicionando repositorio de segurança
 RUN add-apt-repository "deb http://security.debian.org/debian-security buster/updates main contrib non-free"
 
@@ -228,33 +230,33 @@ ENV CHOKIDAR_USEPOLLING 1
 ENV CHOKIDAR_INTERVAL 1000
 
 # Variável de ambiente que define o diretório do app
-ENV DJANGO_APP_PATH /work/app
+ENV DJANGO_APP_PATH /app
 
 # Variável de ambiente que remove a necessidade de senha para o postgres
 ENV POSTGRES_HOST_AUTH_METHOD trust
 
 
 # Descomentar essas linhas se você quiser rodar o contâiner sem
-# o comando para mapear o diretório "-v %cd%:/work/app"
+# o comando para mapear o diretório "-v %cd%:/app"
 ######################################################
 ## Copiando Arquivos do Django para serem utilizados de dentro do contâiner
-# COPY ./base       /work/app/base
-# COPY ./config     /work/app/config
-# COPY ./templates  /work/app/templates
-# COPY ./util       /work/app/util
-# COPY ./vue        /work/app/vue
-# COPY ./manage.py  /work/app/manage.py
+# COPY ./base       /app/base
+# COPY ./config     /app/config
+# COPY ./templates  /app/templates
+# COPY ./util       /app/util
+# COPY ./vue        /app/vue
+# COPY ./manage.py  /app/manage.py
 
 ## Pré-instalando dependencias do Vue
-#RUN cd /work/app/vue \
+#RUN cd /app/vue \
 # && npm install
 #
 ## Gerando arquivos estáticos do Django
-#RUN cd /work/app/ \
+#RUN cd /app/ \
 # && python3 manage.py collectstatic --noinput
 #
 ## Removendo excessos (node_modules)
-#RUN rm -rf /work/app/vue/node_modules
+#RUN rm -rf /app/vue/node_modules
 ######################################################
 
 # Copiando script para execução do container
