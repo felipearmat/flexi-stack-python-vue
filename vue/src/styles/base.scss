@@ -1,0 +1,29 @@
+// Importando arquivos SCSS de variáveis, seguido do Bootstrap e então o BootstrapVue
+@import "./variables";
+@import '~bootstrap/scss/bootstrap';
+@import '~bootstrap-vue/src/index';
+
+/*
+ * Regras de css declaradas nessa sessão sobreescreverão as regras do bootstrapVue
+ */
+
+#app {
+  // Configurações base da aplicação
+  max-width: 1464px;
+  margin: auto;
+
+  // Limitando tamanho do container em resoluções >= 1904px
+  @media (min-width: 1904px) {
+    .container {
+      max-width: 1185px;
+    }
+  }
+}
+
+// Exportando variáveis para facilitar a vida do programador front-end
+:export {
+  // Exporta todos os grid-breakpoints
+  @each $bp, $value in $grid-breakpoints {
+    #{$bp}: #{$value};
+  }
+}

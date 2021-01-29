@@ -1,27 +1,18 @@
-import Vue from './setup.js'
-import render from '@/componentes/render.vue'
-import routes from '@/routes/main.js'
+import { routerGen } from '@/router/index.js'
+import { Vue, store } from './setup.js'
+import App from './App.vue'
 import VueRouter from 'vue-router'
 
-// Global css
-import 'bootstrap/dist/css/bootstrap.css'
-import 'bootstrap-vue/dist/bootstrap-vue.css'
-import '@/assets/css/base.css'
+Vue.use(VueRouter)
 
-// Bus de eventos para controle omnidirecional
-// export const eventBus = new Vue()
+const router = routerGen()
 
-const router = new VueRouter({ mode: 'history', routes })
-
-// Conjunto de variáveis globais a ser exportado
-export var globalVars = {}
-
-export function init (root, gVars) {
-  globalVars = gVars
-  /* eslint-disable no-new */
+// Criando uma função para que inicializemos parametros globais do SPA passados na inicialização
+export function init (root, globalVars) {
+  store.commit('updateGlobal', globalVars)
   new Vue({
-    el: root,
     router,
-    render: h => h(render)
-  })
+    store,
+    render: h => h(App)
+  }).$mount(root)
 }

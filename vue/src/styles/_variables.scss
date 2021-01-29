@@ -1,0 +1,12 @@
+// Arquivo para definição de variáveis do Bootstrap e da aplicação.
+// Mais em: https://getbootstrap.com/docs/4.0/getting-started/theming/
+// Variáveis do Bootstrap para referência: https://github.com/twbs/bootstrap/blob/v4.5.3/scss/_variables.scss
+
+$font-size-base: 1rem;
+$font-family-base: 'Roboto', Arial, sans-serif;
+
+$h1-font-size: $font-size-base * 3;
+$h2-font-size: $font-size-base * 1.5;
+$h3-font-size: $font-size-base;
+
+$headings-color: rgba(#0C1330, 0.8);
