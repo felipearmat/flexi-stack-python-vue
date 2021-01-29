@@ -1,3 +1,39 @@
+// Algumas funções utilitárias que podem ser importadas do BootstrapVue
+/*
+  import { cloneDeep } from 'bootstrap-vue/src/utils/clone-deep'
+  import {
+    kebabCase,
+    pascalCase,
+    startCase,
+    lowerFirst,
+    upperFirst,
+    escapeRegExp,
+    toString,
+    trimLeft,
+    trimRight } from 'bootstrap-vue/src/utils/string'
+  import {
+    removeNode,
+    isElement,
+    getActiveElement,
+    isActiveElement,
+    isVisible,
+    isDisabled,
+    selectAll,
+    select,
+    matches,
+    closest,
+    contains,
+    addClass,
+    removeClass,
+    hasClass,
+    setAttr,
+    removeAttr,
+    getAttr,
+    setStyle,
+    removeStyle,
+    offset,
+    position } from 'bootstrap-vue/src/utils/dom'
+ */
 import { getBreakpointsCached } from 'bootstrap-vue/src/utils/config'
 import { Vue } from '@/setup.js'
 import exportedVars from '@/styles/base.scss'
