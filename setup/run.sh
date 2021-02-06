@@ -2,8 +2,6 @@
 echo "Rodando a versão de desenvolvimento..."
 
 cd $DJANGO_APP_PATH
-echo "Iniciando Postgres..."
-docker-entrypoint.sh postgres &
 echo "Instalando Dependencias do Vue..."
 cd "$DJANGO_APP_PATH/vue"
 yarn install
@@ -14,4 +12,4 @@ cd $DJANGO_APP_PATH
 python3 manage.py makemigrations
 python3 manage.py migrate
 echo "Iniciando Servidor..."
-python3 manage.py runserver 0.0.0.0:8000
+python3 manage.py runserver 0:8000
