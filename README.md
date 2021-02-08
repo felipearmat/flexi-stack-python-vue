@@ -30,17 +30,17 @@ docker run -d --rm
   -v `pwd`/dbinit:/docker-entrypoint-initdb.d
   postgres:12
 ```
-- Ainda na pasta do projeto, execute o comando abaixo para iniciar a Imagem (esse comando iniciará o container com o django e o Vue.js, mapeando a porta 8000 do seu pc com a porta 8000 do container e mapeando a pasta do projeto para a pasta /app do container):
+- Ainda na pasta do projeto, execute o comando abaixo para iniciar a Imagem (esse comando iniciará o container com o django e o Vue.js, mapeando a porta 8080 do seu pc com a porta 8080 do container e mapeando a pasta do projeto para a pasta /app do container):
 ```
 # Comando para Windows
-docker run -it --rm --name=django-vue-app -p 8000:8000 -v %cd%:/app django-vue-app
+docker run -it --rm --name=django-vue-app -p 8080:8080 -v %cd%:/app django-vue-app
 
 # Comando para Unix
-docker run -it --rm --name=django-vue-app -p 8000:8000 -v `pwd`:/app django-vue-app
+docker run -it --rm --name=django-vue-app -p 8080:8080 -v `pwd`:/app django-vue-app
 ```
-- Acesse com seu navegador predileto o endereço localhost:8000
+- Acesse com seu navegador predileto o endereço localhost:8080
 
-- Senhas para utilizar a interface admin (localhost:8000/admin):
+- Senhas para utilizar a interface admin (localhost:8080/admin):
 ```
   # superuser (usuario / senha):
   admin
@@ -52,7 +52,7 @@ docker run -it --rm --name=django-vue-app -p 8000:8000 -v `pwd`:/app django-vue-
 ```
 docker exec -it django-vue-db psql -U postgres
 ```
-- Com esse comando você acessará o terminal do postgresql. O comando `\l` listará todos os bancos de dados criados, o comando `\c <nome do banco>` conecta o terminal à um banco para que você possa executar consultas e digite `\d` para listar todas as tabelas.
+- Com esse comando você acessará o terminal do postgresql. O comando `\l` listará todos os bancos de dados criados, o comando `\c <nome do banco (p. ex. app)>` conecta o terminal à um banco para que você possa executar consultas e o comando `\d` lista todas as tabelas do banco conectado.
 
 ## Como acessar o Container?
 - Para acessar o container basta um comando parecido com o de acesso ao bd (como é de se esperar o container deve estar em execução para isso):

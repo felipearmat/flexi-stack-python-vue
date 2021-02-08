@@ -1,6 +1,5 @@
-import os
-import datetime
-
+# import os
+# import datetime
 from django.db import models
 
 class MyModel(models.Model):

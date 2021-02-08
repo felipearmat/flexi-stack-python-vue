@@ -1,5 +1,5 @@
 import os
-# from slugify import slugify
+from slugify import slugify
 from django.contrib.auth.management import create_permissions
 from django.contrib.auth.models import Permission
 from django.db.models import Q
@@ -54,9 +54,9 @@ def custom_errors(nome, campo):
         'alpha_numerico': f"Campo '{nome_campo}' só aceita valores alpha-numéricos",
     }
 
-# def string_to_path(string):
-#     "Transforma uma string qualquer em uma string adequada para ser utilizada em url's"
-#     return slugify(str.lower(string))
+def string_to_path(string):
+    "Transforma uma string qualquer em uma string adequada para ser utilizada em url's"
+    return slugify(str.lower(string))
 
 def generate_object_slug(_model, string):
     "Retorna o slug de um objeto baseado na string passada. Caso já exista o \
